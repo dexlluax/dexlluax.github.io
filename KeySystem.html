@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dexl Key System</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0d0d0d;
+        color: white;
+    }
+
+    .wrapper {
+        max-width: 700px;
+        margin: 60px auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 45px;
+        font-weight: bold;
+        color: #12c24a;
+        margin-bottom: 25px;
+        text-shadow: 0 0 10px #12c24a80;
+    }
+
+    .panel {
+        background: #121212;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #1f1f1f;
+        box-shadow: 0 0 12px #12c24a20;
+        margin-bottom: 25px;
+    }
+
+    .key-text {
+        font-size: 38px;
+        font-weight: bold;
+        color: #12c24a;
+        letter-spacing: 3px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px #12c24a80;
+    }
+
+    .green-btn {
+        background: #12c24a;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 18px;
+        width: 70%;
+        max-width: 400px;
+        margin-top: 10px;
+    }
+
+    .green-btn:hover {
+        background: #0fa83f;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="title">KEY</div>
+
+    <div class="panel">
+        <div class="key-text" id="keyBox"></div>
+
+        <div class="green-btn" id="copyBtn" onclick="copyKey()">
+            <span class="material-icons icon">content_copy</span>
+            <span class="btn-text">Copy Key</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const encodedKey = "ODA5Mg==";
+
+    const dexlKey = atob(encodedKey);
+
+    document.getElementById("keyBox").textContent = dexlKey;
+
+    function copyKey() {
+        const btn = document.getElementById("copyBtn");
+        const btnText = btn.querySelector(".btn-text");
+        const icon = btn.querySelector(".icon");
+
+        navigator.clipboard.writeText(dexlKey);
+
+        btnText.textContent = "Copied";
+        icon.textContent = "check";
+
+        setTimeout(() => {
+            btnText.textContent = "Copy Key";
+            icon.textContent = "content_copy";
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>

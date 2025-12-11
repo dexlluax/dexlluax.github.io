@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dexl</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0d0d0d;
+        color: white;
+    }
+
+    .wrapper {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: #12c24a;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px #12c24a80;
+    }
+
+    .panel {
+        background: #121212;
+        padding: 20px 22px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #1f1f1f;
+        box-shadow: 0 0 12px #12c24a20;
+    }
+
+    .panel-title {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #12c24a;
+        font-weight: bold;
+    }
+
+    .feature-list {
+        padding-left: 20px;
+        margin-top: 10px;
+    }
+
+    .button-section {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .green-btn {
+        background: #12c24a;
+        padding: 15px 30px;
+        border-radius: 10px;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        width: 70%;
+        max-width: 450px;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    .green-btn:hover {
+        background: #0fa83f;
+    }
+
+    .icon {
+        font-size: 24px;
+    }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="title">Dexl</div>
+
+    <div class="panel">
+        <div class="panel-title">Welcome</div>
+        <p>Hello, user! Welcome to Dexl.</p>
+    </div>
+
+    <div class="panel">
+        <div class="panel-title">Features</div>
+        <ul class="feature-list">
+            <li>Player Modifications</li>
+            <li>Fly</li>
+            <li>Various TPs</li>
+            <li>Waypoints</li>
+            <li>ESP</li>
+            <li>X-Ray</li>
+            <li>Miscellaneous utilitys</li>
+            <li>FE Invisibility</li>
+            <li>FE Fling (requires collision)</li>
+            <li>FE Jerk Off</li>
+        </ul>
+    </div>
+
+    <div class="button-section">
+
+        <!-- Updated Copy Script Button -->
+        <div class="green-btn" id="copyBtn" onclick="copyScript()">
+            <span class="material-icons icon">content_copy</span>
+            <span class="btn-text">Copy Script</span>
+        </div>
+
+        <div class="green-btn" onclick="window.location.href='https://your-url-here.com'">
+            <span class="material-icons icon">vpn_key</span>
+            Key System
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function copyScript() {
+        const script = `loadstring(game:HttpGet("https://dexlluax.github.io/dexl.lua"))()`;
+        
+        const btn = document.getElementById("copyBtn");
+        const btnText = btn.querySelector(".btn-text");
+        const icon = btn.querySelector(".icon");
+
+        navigator.clipboard.writeText(script);
+
+        // Change to "Copied ✓"
+        btnText.textContent = "Copied";
+        icon.textContent = "check";
+
+        // Reset after 1 second
+        setTimeout(() => {
+            btnText.textContent = "Copy Script";
+            icon.textContent = "content_copy";
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
